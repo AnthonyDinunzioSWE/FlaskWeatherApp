@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img class="logo" src="/static/logo.png" alt="Weather Icon">
+        </header>
+        <form method="POST">
+            <div class="search-bar">
+                <input class="input" id="location" name="location" type="text" placeholder="Enter location" required>
+                <button id="btn" type="submit">Search</button>
+            </div>
+        </form>
+        {% if location %}
+            <div class="weather-info">
+                <h2>Weather in {{ location }}</h2>
+                <div class="weather-details">
+                    <div class="temperature">{{ temperature }}°C</div>
+                    <div class="description">{{ description }}</div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
